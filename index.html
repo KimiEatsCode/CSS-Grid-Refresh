@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- The <base> element specifies the base URL and/or target for all relative URLs in a page. The <base> tag must have either an href or a target attribute present, or both.There can only be one single <base> element in a document! Sounds like a bad idea because it becomes the base url for all links on a page-->
+    <!-- <base href="https://www.w3schools.com/" target="_blank"> -->
+    <meta charset="UTF-8">
+    <meta name="keywords" content="css grid practice, css grid terms, css grid examples">
+    <meta name="descript" content="description of your webpage">
+    <meta name="author" content="Kimi Rettig">
+    <!--there is a meta tag to refresh the page-->
+    <meta name="refresh" content="30">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Title of this webpage shows in google results as title of search result and title on tab of browser</title>
+    <!-- <link rel="stylesheet" href="cssgrid.css"> -->
+    <style>
+
+body {
+    font-size:16px;
+    font-family: "Helvetica", "sans-serif";
+}
+
+p, div {
+    font-size: 0.8em;
+    line-height:1.1em;
+}
+
+.container {
+    display:grid;
+    /*must have grid for display to enable css grid*/
+    height:100vh;
+    /*100vh is good to make container stretch to vertical height of screen*/
+    width:100%;
+    /* grid-template-columns: 25% 25% 25% 25%; */
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(4,1fr);
+    column-gap: 20px;
+    row-gap:20px;
+}
+
+.box {
+    font-size:1.5em;
+}
+
+
+button {
+    background: #0066bf;
+    border: none;
+    padding: 10px;
+    margin:10px;
+    color: #fff;
+    font-weight: bold;
+    border-radius:10px;
+    width:200px;
+    height:auto;
+    border:2px solid #0066bf;
+}
+
+button:hover {
+    background-color:#c1e2ff;
+    color:#0066bf;
+    border:2px solid #0066bf;
+}
+    </style>
+</head>
+
+<body>
+
+    <h1>CSS Grid Knowledge Refresh</h1>
+
+<button onClick="changeColors()">Click to Change Colors</button>
+
+    <div class="container">
+        <div class="box">
+            <h2>Basic html tags</h2>
+            <b>Related Study Links: </b><a href="https://www.w3schools.com/html/html_blocks.asp">w3schools - </a>
+            <p>This is a paragraph block element</p>
+            <div>A block-level element always starts on a new line, and the browsers automatically add some space (a
+                margin)
+                before and after the element.</div>
+            <hr>
+            <b>
+                <p>What is a span element</p>
+            </b>
+            <p>A span element is an inline container. It will fall inline with elements around it. Whereas a div will...
+            </p>
+        </div>
+        <div class="box">
+            <hr>
+            <h2>Images</h2>
+            <p>Using max-width property and setting max-width to 100% will?</p>
+            <p>max-width at 100% will set scale down the image if it has to, but will never scape up larger than its
+                original
+                size.</p>
+            <p>vs</p>
+            <p>Using just width = 100% is bad because setting width to 100% for an image will scale the image larger
+                than
+                it's
+                original size. You only want this if you it is like a background image for a page. </p>
+        </div>
+        <p class="box2">This is a paragraph element but takes up as much space as one grid template column</p>
+        <div class="box">test</div>
+
+        <div class="box">test</div>
+        <div class="box">test</div>
+        <div class="box">test</div>
+        <div class="box">test</div>
+
+        <div class="box">test</div>
+        <div class="box">test</div>
+        <div class="box">test</div>
+        <div class="box">test</div>
+    </div><!--end of grid container-->
+
+</body>
+<!--put js script here unless it's needed for page on load-->
+<!-- <script src="./project.js"></script> -->
+<script>
+//color bg of each box based on random picked color
+
+$(".box").each(function () {
+  console.log("this is jquery");
+  $(this).css(
+    "background-color",
+    "rgb(" +
+      Math.floor(Math.random() * 256) +
+      "," +
+      Math.floor(Math.random() * 256) +
+      "," +
+      Math.floor(Math.random() * 256) +
+      ")"
+  );
+});
+
+function changeColors() {
+   return location.reload();
+};
+</script>
+</html>
